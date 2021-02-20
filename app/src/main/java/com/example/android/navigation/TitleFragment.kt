@@ -24,17 +24,21 @@ class TitleFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container,false)
-        binding.playButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
+        binding.playButton.setOnClickListener {
+            view: View ->
+            view.findNavController()
+                    .navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
         setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.overflow_menu, menu)
+        inflater.inflate(R.menu.overflow_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController()) || super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 }
