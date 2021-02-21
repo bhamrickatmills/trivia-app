@@ -75,6 +75,11 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"
             app:popUpTo="@id/titleFragment" />
+        <argument
+            android:name="question"
+            app:argType="string" />
+        <argument android:name="answer"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
