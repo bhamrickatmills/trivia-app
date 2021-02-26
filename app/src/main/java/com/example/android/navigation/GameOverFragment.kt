@@ -38,7 +38,7 @@ class GameOverFragment : Fragment() {
                     .navigate(GameOverFragmentDirections.actionGameOverFragment2ToGameFragment())
         }
         val args = GameOverFragmentArgs.fromBundle(requireArguments())
-        Toast.makeText(context, "Question: ${args.question}\n Answer: ${args.answer}", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Question: ${args.question}\nAnswer: ${args.answer}", Toast.LENGTH_LONG).show()
         return binding.root
     }
 }
